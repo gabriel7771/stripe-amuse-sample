@@ -22,7 +22,6 @@ import (
 
 func main() {
 	// This is your test secret API key.
-	//stripe.Key = "sk_test_51LgEDEHIBunjXh197gkUy3qZoiQicGQSOQkMrqpmJhAJFYzUDyKkhAADixzpVQzGlxQlslrqE6riS8b81sknugxg00CF0jTWRR"
 	if err := godotenv.Load(); err != nil {
 		log.Fatalf("godotenv.Load: %v", err)
 	}
@@ -131,7 +130,7 @@ func handleWebhook(w http.ResponseWriter, req *http.Request) {
 	// If you are using an endpoint defined with the API or dashboard, look in your webhook settings
 	// at https://dashboard.stripe.com/webhooks
 	//endpointSecret := "whsec_12345"
-	endpointSecret := "whsec_a2eada954c764e9b93a819fba7eb6448c4ae3de7c22782e3ff128c828031f251"
+	endpointSecret := os.Getenv("STRIPE_WEBHOOK_SECRET")
 	signatureHeader := req.Header.Get("Stripe-Signature")
 	event, err := webhook.ConstructEvent(payload, signatureHeader, endpointSecret)
 	if err != nil {
