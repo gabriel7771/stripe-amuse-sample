@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Subscribe to a cool new product</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+  </head>
+  <body>
+    <section>
+      <div class="product">
+        <img src="https://img.icons8.com/cute-clipart/64/000000/earbud-headphones.png"/>
+        <div class="description">
+          <h3>Roadie plan</h3>
+          <h5>Includes the base version of the software.</h5>
+        </div>
+      </div>
+      <form action="/create-checkout-session" method="POST">
+        <!-- Add a hidden field with the lookup_key of your Price -->
+        <input type="hidden" name="lookup_key" value="amuse_roadie_monthly" />
+        <button id="checkout-and-portal-button" type="submit">$10 / month</button>
+      </form>
+    </section>
+    <section>
+      <div class="product">
+        <img src="https://img.icons8.com/cute-clipart/64/000000/tuning-fork.png"/>
+        <div class="description">
+          <h3>Performer plan</h3>
+          <h5>Includes the base version of the software plus instrument-specific tuning software.</h5>
+        </div>
+      </div>
+      <form action="/create-checkout-session" method="POST">
+        <!-- Add a hidden field with the lookup_key of your Price -->
+        <input type="hidden" name="lookup_key" value="amuse_performer_monthly" />
+        <button id="secondary-button" type="submit">$25 / month</button>
+      </form>
+      <form action="/create-checkout-session" method="POST">
+        <!-- Add a hidden field with the lookup_key of your Price -->
+        <input type="hidden" name="lookup_key" value="amuse_performer_yearly" />
+        <button id="checkout-and-portal-button" type="submit">$250 / year</button>
+      </form>
+    </section>
+    <section>
+      <div class="product">
+        <img src="https://img.icons8.com/cute-clipart/64/000000/rock-music.png"/>
+        <div class="description">
+          <h3>Rockstar plan</h3>
+          <h5>Includes everything in the Performer package plus 24/7 Live Customer support and access to online training sessions from industry professionals.</h5>
+        </div>
+      </div>
+      <form action="/create-checkout-session" method="POST">
+        <!-- Add a hidden field with the lookup_key of your Price -->
+        <input type="hidden" name="lookup_key" value="amuse_rockstar_monthly" />
+        <button id="secondary-button" type="submit">$50 / month</button>
+      </form>
+      <form action="/create-checkout-session" method="POST">
+        <!-- Add a hidden field with the lookup_key of your Price -->
+        <input type="hidden" name="lookup_key" value="amuse_rockstar_yearly" />
+        <button id="checkout-and-portal-button" type="submit">$250 / year</button>
+      </form>
+    </section>
+  </body>
+</html>
